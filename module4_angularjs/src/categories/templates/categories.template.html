@@ -1,5 +1,5 @@
 <ul>
-  <li ng-repeat="item in $ctrl.items" >
+  <li ng-repeat="item in $ctrl.items" style="font-size: 15px;">
     ({{item.short_name}})
     <a ui-sref="mainList.itemDetail({categoryShortName: item.short_name})">{{ item.name }} </a>
     {{item.special_instructions}}
