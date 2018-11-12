@@ -1,0 +1,59 @@
+<div class="container">
+
+    <fieldset>
+        <h2 id="menu-categories-title" class="text-center">User preferences</h2>
+        <form name='regForm' novalidate>
+            <div class="container" ng-if="!userPreferencesCtrl.userPreferences">
+                Not Signed Up Yet.
+                <a ui-sref="public.registration">Sign up Now!</a>
+
+
+            </div>
+            <div class="container" ng-if="userPreferencesCtrl.userPreferences">
+                <div class="row">
+
+                    <div class="col">
+                        First name: {{userPreferencesCtrl.userPreferences.firstName}}
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col">
+                        Last name: {{userPreferencesCtrl.userPreferences.lastName}}
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col">
+                        Email: {{userPreferencesCtrl.userPreferences.email}}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        Phone: {{userPreferencesCtrl.userPreferences.phone}}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        Favourite dish:
+                    </div>
+                </div>
+
+            </div>
+
+            <menu-item ng-if="userPreferencesCtrl.userPreferences.dish"
+                       menu-item="userPreferencesCtrl.userPreferences.dish">
+            </menu-item>
+
+
+        </form>
+    </fieldset>
+
+
+
+</div>

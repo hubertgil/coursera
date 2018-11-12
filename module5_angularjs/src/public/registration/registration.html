@@ -1,0 +1,116 @@
+<div class="container">
+
+    <fieldset>
+        <h2 id="menu-categories-title" class="text-center">Registration</h2>
+        <form name='regForm' novalidate>
+            <div class="container" ng-if="registrationCtrl.completed">
+                <h2>Your information has been saved.</h2>
+            </div>
+            <div class="container" ng-if="!registrationCtrl.completed">
+                <div class="row">
+                    <div class="col-6>
+                        <label for="firstName">First name:</label>
+                    </div>
+                    <div class="col-6">
+                        <input type="text" name="firstName" id="firstName" placeholder="First name"
+                               ng-model="registrationCtrl.user.firstName"
+                               required
+                               minlength="2"
+                               ng-maxlength="10" style="color: #000000;">
+                        <span
+                                ng-if="(regForm.firstName.$error.minlength || regForm.firstName.$error.required) && regForm.firstName.$touched">
+                        First name must be at least 2 characters long
+                        </span>
+                        <span ng-if="regForm.firstName.$error.maxlength && regForm.firstName.$touched">
+                        First name must not be longer than 10 characters
+                        </span>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <label for="lastName">Last name:</label>
+                    </div>
+                    <div class="col-6">
+                        <input type="text" name="lastName" id="lastName" placeholder="Last name"
+                               ng-model="registrationCtrl.user.lastName"
+                               required
+                               minlength="2"
+                               ng-maxlength="10" style="color: #000000;">
+                        <span
+                                ng-if="(regForm.lastName.$error.minlength || regForm.lastName.$error.required) && regForm.lastName.$touched">
+                        Last name must be at least 2 characters long
+                        </span>
+                        <span ng-if="regForm.lastName.$error.maxlength && regForm.lastName.$touched">
+                        Last name must not be longer than 10 characters
+                        </span>
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-6">
+                        <label for="email">Email:</label>
+                    </div>
+                    <div class="col-6">
+                        <input type="email" name="email" id="email" placeholder="Email"
+                               ng-model="registrationCtrl.user.email"
+                               required style="color: #000000;">
+                        <span ng-if="regForm.email.$invalid && regForm.email.$touched">
+                        Must be a valid email address: handle@domain format
+                        </span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <label for="phone">Phone:</label>
+                    </div>
+                    <div class="col-6">
+                        <input type="text" name="phone" id="phone" placeholder="Phone ###-###-####"
+                               ng-model="registrationCtrl.user.phone"
+                               pattern="(\d{3})-(\d{3})-(\d{4})" style="color: #000000;">
+                        <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+                        Phone must be in the format ###-###-####.
+                        </span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <label for="favouriteDish">Favourite dish:</label>
+                    </div>
+                    <div class="col-6">
+                        <input type="text" name="favouriteDish" id="favouriteDish" placeholder="Favourite dish"
+                               ng-model="registrationCtrl.user.favouriteDish"
+                               required
+                               style="color: #000000;">
+
+                        <span
+                                ng-if="regForm.favouriteDish.$error.required && regForm.favouriteDish.$touched">
+                        Favourite dish is required
+                        </span>
+
+                        <span ng-if="regForm.favouriteDish.$touched && !registrationCtrl.validFavouriteDish">
+                        No such menu number exists
+                        </span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <button style="color: #000000;"
+                            ng-disabled="regForm.$invalid"
+                            ng-click="registrationCtrl.submit()">Save user preferences
+                    </button>
+                </div>
+            </div>
+
+
+        </form>
+    </fieldset>
+
+
+
+</div>
